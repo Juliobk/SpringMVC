@@ -7,11 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fh.br.com.bookstore.Interface.AutorInterface;
+import fh.br.com.bookstore.Interface.impl.DefaultAutorFacade;
 import fh.br.com.model.Autor;
 
 @Controller
 @RequestMapping("/")
 public class AutorController {
+	AutorInterface autorfacade = new DefaultAutorFacade();
 
 
 	    @RequestMapping("novoAutor")
@@ -39,8 +42,8 @@ public class AutorController {
 	    }
 	    @RequestMapping(value = "/adicionado", method = RequestMethod.GET)
 	      public String getAutores(Model model) {
-	    		ArrayList<Autor> autores = listarAutores();
-	          model.addAttribute("autores", autores);
+	    		//ArrayList<Autor> autores = listarAutores();
+	          model.addAttribute("autores", autorfacade.popular());
 	          return "adicionado";
 	      }
 	
