@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fh.br.com.model.Autor;
 
 @Controller
-@RequestMapping("/Autor")
+@RequestMapping("/")
 public class AutorController {
 
 
@@ -38,11 +37,11 @@ public class AutorController {
 	    		
 	        return autores;
 	    }
-	    @RequestMapping(value = "/Autor/adicionado", method = RequestMethod.GET)
+	    @RequestMapping(value = "Autor/", method = RequestMethod.GET)
 	      public String getAutores(Model model) {
 	    		ArrayList<Autor> autores = listarAutores();
 	          model.addAttribute("autores", autores);
-	          return "lista";
+	          return "adicionado";
 	      }
 	
 }
