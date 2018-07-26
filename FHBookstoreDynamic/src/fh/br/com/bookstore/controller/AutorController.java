@@ -37,7 +37,7 @@ public class AutorController {
 	    		
 	        return autores;
 	    }
-	    @RequestMapping(value = "Autor/", method = RequestMethod.GET)
+	    @RequestMapping(value = "/adicionado", method = RequestMethod.GET)
 	      public String getAutores(Model model) {
 	    		ArrayList<Autor> autores = listarAutores();
 	          model.addAttribute("autores", autores);
